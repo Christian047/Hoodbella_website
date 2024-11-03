@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hoodbella Tourism</title>
+
+    <!-- CSS Dependencies -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="webpage2.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="navbar sticky-top container">
+        <div class="logo-container"> <a href="index.html">
+          <img src="fresh-logo-02.png" class="logo" alt=""
+              style="max-width: 300px; height: auto;">
+        </a></div>
+        <div class="nav">
+    
+          <u class="navi">
+    
+            <li class="active"><a href="about_us.html" class="nav-link">About us</a></li>
+            <li><a href="Reservation.html" class="nav-link">Make reservation</a></li>
+            <li><a href="map.html" class="nav-link">View Map</a></li>
+    
+          </u>
+        </div>
+      </div>
+    
+
+
+
+
+    <!-- Reservation Section -->
+    <div class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="reservation-container">
+                    <div class="reservation-header text-center">
+                        <div class="display-6 fw-bold">Hoodbella Reservations</div>
+                        <p>Book your stay and let us handle the rest!</p>
+                    </div>
+                    <div class="reservation-body">
+                        <form id="reservationForm">
+                            <div class="select-wrapper">
+                                <select class="form-select" id="location" required>
+                                    <option value="" selected disabled>Select Location</option>
+                                    <option value="Lekki Conservation Centre">Lekki Conservation Centre, Lagos</option>
+                                    <option value="Nike Art Gallery">Nike Art Gallery</option>
+                                    <option value="Tarkwa Bay Beach">Tarkwa Bay Beach</option>
+                                    <option value="National Museum Lagos">National Museum Lagos</option>
+                                    <option value="Freedom Park">Freedom Park</option>
+                                    <option value="The National Arts Theatre">The National Arts Theatre</option>
+                                    <option value="Lekki Market">Lekki Market</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <input type="email" class="custom-form-control" id="email"
+                                    placeholder="Your Email Address" required>
+                                <span class="input-icon"><i class="fas fa-envelope"></i></span>
+                            </div>
+
+                            <div class="date-container">
+                                <div class="input-group flex-grow-1">
+                                    <input type="text" class="custom-form-control datepicker" id="startDate"
+                                        placeholder="Check-in Date" required readonly>
+                                    <span class="input-icon"><i class="fas fa-calendar-alt"></i></span>
+                                </div>
+
+                                <div class="input-group flex-grow-1">
+                                    <input type="text" class="custom-form-control datepicker" id="endDate"
+                                        placeholder="Check-out Date" required readonly>
+                                    <span class="input-icon"><i class="fas fa-calendar-alt"></i></span>
+                                </div>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="button" href="payment.html" class="btn btn-reserve" id="submitReservation">
+                                    <i class="fas fa-check-circle me-2"></i>Confirm Reservation
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-check-circle me-2"></i>Reservation Confirmed!
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="reservation-details"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- section3 -->
+    <!-- big ass cards -->
+    <div class="section3">
+
+
+        <div class="p3"><img src="iloveimg-compressed/complex-aerial-view-city.jpg" alt="">
+            <div class="card">
+                <h1> TRAVEL TO SOUTH AFRICA</h1> <br> Escape to paradise with <br> our exclusive travel
+                packages.Experience
+                breathtaking destinations and create unforgettable memories with us today! <br><br> <a href="#"> Tell me
+                    more</a>
+            </div>
+        </div>
+
+
+        <div class="p4"><img src="iloveimg-compressed/blue-villa-beautiful-sea-hotel.jpg" alt="" class="2"></div>
+    </div>
+
+
+
+
+
+
+    <!-- About Section -->
+    <section class="finally">
+        <section class="last">
+            <div></div>
+            <div></div>
+            <div></div>
+            <br />
+            <div class="finaltext">
+                <h1>
+                    About Us <br />
+                    <br />
+                    HOODBELLA TOURISM <br />
+                    AND SMALL GROUP TOURS
+                </h1>
+
+                <div class="text">
+                    <p class="after text-white">
+                        <div class="display-6">Our Mission</div>
+To create transformative African journeys that immerse visitors in the rich heritage, wildlife, and vibrant cultures of Nigeria and South Africa, while ensuring sustainable economic growth for local communities through responsible tourism practices.
+                    </p>
+                    <div class="social-icons">
+                        <i class="fa-brands fa-facebook"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-white py-5 text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0 foot">
+                    <h5 class="text-uppercase mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="footer-link">Home</a></li>
+                        <li><a href="#attractions" class="footer-link">Attractions</a></li>
+                        <li><a href="#contact" class="footer-link">Contact</a></li>
+                        <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-uppercase mb-4">Stay Connected</h5>
+                    <p>Subscribe to our newsletter for the latest updates and offers.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Enter your email"
+                            aria-label="Enter your email" aria-describedby="button-addon2">
+                        <button class="btn btn-primary footer-subscribe-btn" type="button"
+                            id="button-addon2">Subscribe</button>
+                    </div>
+                    <div class="mt-4">
+                        <a href="#" class="text-white social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2024 Hoodbella Tourism. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="footer-link me-4">Terms of Service</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+ 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+
+
+        
+<script>
+    $(document).ready(function() {
+        // ==========================================
+        // Constants and Configuration
+        // ==========================================
+        const unavailableDates = [
+            '2024-11-24', 
+        ];
+    
+        // ==========================================
+        // Datepicker Initialization and Configuration
+        // ==========================================
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            startDate: new Date(),
+            beforeShowDay: function(date) {
+                const dateString = date.toISOString().split('T')[0];
+                if (unavailableDates.includes(dateString)) {
+                    return {
+                        enabled: false,
+                        classes: 'unavailable',
+                        tooltip: 'This date is unavailable'
+                    };
+                }
+                return true;
+            },
+            container: '.date-container'
+        });
+    
+        // Handle check-in date selection
+        $('#startDate').datepicker()
+            .on('changeDate', function(e) {
+                $('#endDate').datepicker('setStartDate', e.date);
+                const endDate = $('#endDate').datepicker('getDate');
+                if (endDate && endDate < e.date) {
+                    $('#endDate').datepicker('clearDates');
+                }
+                validateDates();
+            });
+    
+        // Handle check-out date selection
+        $('#endDate').datepicker()
+            .on('changeDate', function(e) {
+                $('#startDate').datepicker('setEndDate', e.date);
+                validateDates();
+            });
+    
+        // ==========================================
+        // Validation Functions
+        // ==========================================
+        function validateDates() {
+            const startDate = $('#startDate').datepicker('getDate');
+            const endDate = $('#endDate').datepicker('getDate');
+            
+            if (startDate && endDate) {
+                // Check for unavailable dates in the range
+                let currentDate = new Date(startDate);
+                let hasUnavailableDates = false;
+                
+                while (currentDate <= endDate) {
+                    const dateString = currentDate.toISOString().split('T')[0];
+                    if (unavailableDates.includes(dateString)) {
+                        hasUnavailableDates = true;
+                        break;
+                    }
+                    currentDate.setDate(currentDate.getDate() + 1);
+                }
+                
+                if (hasUnavailableDates) {
+                    showNotification('Some dates in your selected range are unavailable. Please adjust your selection.', 'warning');
+                    return false;
+                }
+                
+                // Check if stay is longer than 14 days
+                const daysDiff = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
+                if (daysDiff > 14) {
+                    showNotification('Bookings cannot exceed 14 days. Please adjust your dates.', 'warning');
+                    return false;
+                }
+            }
+            return true;
+        }
+    
+        // ==========================================
+        // Utility Functions
+        // ==========================================
+        function showNotification(message, type = 'info') {
+            $('.notification-alert').remove();
+            
+            const alertHtml = `
+                <div class="notification-alert alert alert-${type} alert-dismissible fade show mt-3" role="alert">
+                    ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            `;
+            
+            $('.date-container').after(alertHtml);
+        }
+    
+        // ==========================================
+        // Reservation Form Handling
+        // ==========================================
+        $('#reservationForm').on('submit', function(e) {
+            e.preventDefault();
+            
+            if (!validateDates()) {
+                return;
+            }
+    
+            const reservationDetails = {
+                location: $('#location').val(),
+                email: $('#email').val(),
+                startDate: $('#startDate').val(),
+                endDate: $('#endDate').val()
+            };
+    
+            localStorage.setItem('reservationDetails', JSON.stringify(reservationDetails));
+    
+            const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+            $('.reservation-details').html(`
+                <div class="alert alert-success">
+                    <h4 class="alert-heading">Booking Details:</h4>
+                    <p><strong>Location:</strong> ${reservationDetails.location}</p>
+                    <p><strong>Email:</strong> ${reservationDetails.email}</p>
+                    <p><strong>Check-in:</strong> ${reservationDetails.startDate}</p>
+                    <p><strong>Check-out:</strong> ${reservationDetails.endDate}</p>
+                    <div class="text-center mt-3">
+                        <p>You will be redirected to the payment page shortly...</p>
+                    </div>
+                </div>
+            `);
+            
+            successModal.show();
+            
+            setTimeout(function() {
+                window.location.href = 'payment.html';
+            }, 3000);
+        });
+    
+        $('#submitReservation').on('click', function() {
+            $('#reservationForm').submit();
+        });
+    
+        // ==========================================
+        // Payment Page Handling
+        // ==========================================
+        // Check if we're on the payment page
+        if (window.location.pathname.includes('payment.html')) {
+            const reservationDetails = JSON.parse(localStorage.getItem('reservationDetails'));
+            
+            if (!reservationDetails) {
+                $('#reservationDetails').html(`
+                    <div class="alert alert-info text-center">
+                        <h4 class="alert-heading mb-3">No Reservation Found</h4>
+                        <p>Would you like to make a new reservation?</p>
+                        <div class="mt-3">
+                            <a href="index.html" class="btn btn-primary me-2">
+                                Make a Reservation
+                            </a>
+                        </div>
+                    </div>
+                `);
+                return;
+            }
+    
+            $('#reservationDetails').html(`
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Location:</strong> ${reservationDetails.location}</p>
+                        <p><strong>Email:</strong> ${reservationDetails.email}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Check-in:</strong> ${reservationDetails.startDate}</p>
+                        <p><strong>Check-out:</strong> ${reservationDetails.endDate}</p>
+                    </div>
+                </div>
+            `);
+    
+            // Payment method selection
+            $('.payment-method-card').click(function() {
+                $('.payment-method-card').removeClass('selected');
+                $(this).addClass('selected');
+                
+                if ($(this).data('method') === 'paypal') {
+                    $('#cardDetails').slideUp();
+                } else {
+                    $('#cardDetails').slideDown();
+                }
+            });
+    
+            // Payment form handling
+            $('#paymentForm').submit(function(e) {
+                e.preventDefault();
+                
+                $('#loadingSpinner').show();
+                $('#submitPayment').prop('disabled', true);
+    
+                setTimeout(function() {
+                    $('#loadingSpinner').hide();
+                    $('#submitPayment').prop('disabled', false);
+    
+                    const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                    successModal.show();
+    
+                    localStorage.removeItem('reservationDetails');
+    
+                    $('.modal-body').append(`
+                        <div class="text-center mt-3">
+                            <a href="index.html" class="btn btn-primary">Return to Home</a>
+                        </div>
+                    `);
+                }, 2000);
+            });
+    
+            // Payment form input formatting
+            $('#cardNumber').on('input', function() {
+                let value = $(this).val().replace(/\D/g, '');
+                value = value.replace(/(\d{4})/g, '$1 ').trim();
+                $(this).val(value);
+            });
+    
+            $('#expiryDate').on('input', function() {
+                let value = $(this).val().replace(/\D/g, '');
+                if (value.length > 2) {
+                    value = value.slice(0,2) + '/' + value.slice(2,4);
+                }
+                $(this).val(value);
+            });
+    
+            $('#cvv').on('input', function() {
+                let value = $(this).val().replace(/\D/g, '');
+                if (value.length > 3) {
+                    value = value.slice(0, 3);
+                }
+                $(this).val(value);
+            });
+        }
+    
+        // ==========================================
+        // Styling
+        // ==========================================
+        $('<style>')
+            .text(`
+                .datepicker table tr td.unavailable {
+                    background-color: #ffeded;
+                    color: #dc3545;
+                    text-decoration: line-through;
+                }
+                .notification-alert {
+                    max-width: 100%;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .date-container {
+                    position: relative;
+                }
+                .datepicker-dropdown {
+                    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                    border-radius: 8px;
+                }
+                .datepicker table tr td.active {
+                    background-color: #0d6efd !important;
+                }
+            `)
+            .appendTo('head');
+    });
+
+</script>
+
+
+</body>
+
+</html>

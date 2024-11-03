@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+
+
+
+
+
+
+
+
+
+        <!------------------------------------------------Copy CSS--------------------------------------------------------------------------------->
+
+
+
+        .review-carousel {
+            overflow: hidden;
+        }
+        .multi-carousel {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            margin-left: 0%;  /* Show peek of previous card */
+        }
+        .review-card {
+            flex: 0 0 80%;  /* Main card takes 80% width */
+            max-width: 80%;
+            transition: all 0.5s ease;
+            opacity: 0.3;
+            transform: scale(0.8);
+        }
+        .review-card.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .review-card-inner {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 15px;
+            height: 100%;
+            margin: 0 auto;
+        }
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 20px;
+            height: 30px;
+            background-color: #fff;
+            border-radius: 50%;
+            top: 40%;
+            transform: translateY(-50%);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            opacity: 0.6;
+            position: absolute;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .carousel-control-prev {
+            left: 5px;
+        }
+        .carousel-control-next {
+            right: 5px;
+        }
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(1) grayscale(100);
+        }
+        .rating {
+            color: #ffc107;
+        }
+        .review-image {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+        }
+        .review-date {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+        .review-text {
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+
+        /* Mobile styles - maintaining peek */
+        @media (max-width: 575px) {
+            .multi-carousel {
+                padding: 0 5px;
+            }
+            .review-card-inner {
+                padding: 10px;
+            }
+            .review-text {
+                line-height: 1.3;
+            }
+            .review-image {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* Tablet styles */
+        @media (min-width: 768px) {
+            .review-carousel {
+                padding: 30px 0;
+            }
+            .review-card-inner {
+                padding: 20px;
+                max-width: 500px;
+            }
+            .review-image {
+                width: 60px;
+                height: 60px;
+            }
+            .carousel-control-prev,
+            .carousel-control-next {
+                width: 35px;
+                height: 35px;
+            }
+            .carousel-control-prev {
+                left: 15px;
+            }
+            .carousel-control-next {
+                right: 15px;
+            }
+            .review-text {
+                font-size: 1.05rem;
+                line-height: 1.5;
+            }
+        }
+
+        /* Desktop styles */
+        @media (min-width: 1200px) {
+            .review-carousel {
+                padding: 40px 0;
+            }
+            .review-card {
+                padding: 20px;
+            }
+            .review-card-inner {
+                padding: 25px;
+                max-width: 600px;
+            }
+            .review-image {
+                width: 70px;
+                height: 70px;
+            }
+            .carousel-control-prev,
+            .carousel-control-next {
+                width: 40px;
+                height: 40px;
+            }
+            .carousel-control-prev {
+                left: 20px;
+            }
+            .carousel-control-next {
+                right: 20px;
+            }
+            .review-text {
+                font-size: 1.1rem;
+                line-height: 1.6;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+        
+    </style>
+</head>
+<body>
+
+
+
+
+
+
+
+            <!-- ----------------------------------------------Copy Html--------------------------------------------------------------------------------->
+
+
+
+    <div class="review-carousel">
+        <div class="container-fluid">
+            <div class="multi-carousel">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- Reviews will be loaded here -->
+                    </div>
+                    <button class="carousel-control-prev" onclick="moveCarousel(-1)">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" onclick="moveCarousel(1)">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+            <!-- ----------------------------------------------Copy Html--------------------------------------------------------------------------------->
+
+
+
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+
+            <!-- ----------------------------------------------Copy Script--------------------------------------------------------------------------------->
+
+
+
+
+
+
+
+
+            <script>
+                let currentIndex = 0;
+                let reviews = [];
+                let autoScrollInterval;
+            
+                function fetchReviews() {
+                    reviews = [
+                        {
+                            id: 1,
+                            name: "Sarah Onwunike",
+                            rating: 5,
+                            date: "2024-10-15",
+                            review: "Absolutely fantastic service! The attention to detail and customer care was outstanding and I couldn't be happier with my experience.",
+                            image: "test/aae.jpg"
+                        },
+                        {
+                            id: 2,
+                            name: "Michael Olise",
+                            rating: 4,
+                            date: "2024-10-14",
+                            review: "Great hosting and a very responsive support team. I Would definitely recommend to others looking for quality service.",
+                            image: "test/aaa.avif"
+                        },
+                        {
+                            id: 3,
+                            name: "Lord Akpan",
+                            rating: 5,
+                            date: "2024-10-13",
+                            review: "Outstanding experience from start to finish! The product quality exceeded my expectations and their customer service was exceptional.",
+                            image: "test/aab.jpg"
+                        },
+                        {
+                            id: 4,
+                            name: "Abdulazeez Olayikan",
+                            rating: 5,
+                            date: "2024-10-12",
+                            review: "I'm thoroughly impressed with the level of professionalism and quality of service. Will definitely be a returning customer!",
+                            image: "test/aay.jpg"
+                        }
+                    ];
+            
+                    displayReviews(reviews);
+                    updateActiveStates();
+                    startAutoScroll();
+                }
+            
+                function displayReviews(reviews) {
+                    const container = document.getElementById('carouselTrack');
+                    container.innerHTML = '';
+                    
+                    reviews.forEach((review, index) => {
+                        const stars = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+                        const card = `
+                            <div class="review-card" data-index="${index}">
+                                <div class="review-card-inner">
+                                    <div class="d-flex align-items-center mb-3">
+                                        <img src="${review.image}" alt="${review.name}" class="review-image rounded-circle me-3">
+                                        <div>
+                                            <h4 class="mb-1 h5">${review.name}</h4>
+                                            <div class="rating mb-1">${stars}</div>
+                                            <div class="review-date">${new Date(review.date).toLocaleDateString('en-US', {
+                                                year: 'numeric',
+                                                month: 'long',
+                                                day: 'numeric'
+                                            })}</div>
+                                        </div>
+                                    </div>
+                                    <p class="review-text mb-0">"${review.review}"</p>
+                                </div>
+                            </div>
+                        `;
+                        container.insertAdjacentHTML('beforeend', card);
+                    });
+                }
+            
+                function moveCarousel(direction) {
+                    clearInterval(autoScrollInterval);
+                    const track = document.getElementById('carouselTrack');
+                    currentIndex = (currentIndex + direction + reviews.length) % reviews.length;
+                    updateCarousel();
+                    startAutoScroll();
+                }
+            
+                function updateCarousel() {
+                    const track = document.getElementById('carouselTrack');
+                    const shift = -currentIndex * 80;  // Always use 80% width
+                    track.style.transform = `translateX(${shift}%)`;
+                    updateActiveStates();
+                }
+            
+                function updateActiveStates() {
+                    const cards = document.querySelectorAll('.review-card');
+                    cards.forEach((card, index) => {
+                        card.classList.remove('active');
+                        if (index === currentIndex) {
+                            card.classList.add('active');
+                        }
+                    });
+                }
+            
+                function startAutoScroll() {
+                    clearInterval(autoScrollInterval);
+                    autoScrollInterval = setInterval(() => {
+                        moveCarousel(1);
+                    }, 5000);
+                }
+            
+                // Add resize handler for responsive updates
+                window.addEventListener('resize', () => {
+                    updateCarousel();
+                });
+            
+                document.addEventListener('DOMContentLoaded', fetchReviews);
+            </script>
+            
+            
+
+
+            <!-- ----------------------------------------------Copy Script--------------------------------------------------------------------------------->
+
+</body>
+</html>

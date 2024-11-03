@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Card</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+
+
+
+
+
+
+        <!--------------------Copy Css ------------------------------------------->
+
+
+
+
+        
+
+        .card-img-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-img-top {
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+        
+
+
+        .card {
+            position: relative;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+
+
+
+
+
+
+        
+        .favorite-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            border: none;
+            background: white;
+            padding: 8px;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        
+        .favorite-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+        }
+        
+        .favorite-icon {
+            font-size: 1.2rem;
+            color: #666;
+            transition: all 0.3s ease;
+            stroke: currentColor;
+            stroke-width: 20px;
+            fill: transparent;
+        }
+        
+        .favorite-btn .favorite-icon.active {
+            color: #dc3545;
+            fill: #dc3545;
+            animation: pop 0.3s ease;
+        }
+        
+        .favorite-btn.loading {
+            background: #f8f9fa;
+        }
+        
+        .favorite-btn.loading .favorite-icon {
+            opacity: 0;
+        }
+        
+        .spinner {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 16px;
+            height: 16px;
+            border: 2px solid #dc3545;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.6s linear infinite;
+        }
+        
+        .favorite-btn.loading .spinner {
+            display: block;
+        }
+        
+
+        @keyframes spin {
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        @keyframes pop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+
+
+
+        
+
+
+
+
+
+
+
+    </style>
+</head>
+
+
+
+<body>
+
+
+
+
+
+
+    <!-- ------------------------ Copy Html -------------------------------------------- -->
+
+
+
+
+
+    <div class="container py-5">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <!-- Card 1 -->
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-img-container">
+                        <img src="Abuja.jpg" class="card-img-top" alt="...">
+
+
+<!-- ------------------------------Copy Icon ------------------------- -->
+
+
+
+
+
+                        <button class="favorite-btn" data-id="1">
+                            <i class="fas fa-heart favorite-icon"></i>
+                            <div class="spinner"></div>
+                        </button>
+
+
+
+
+
+                        
+<!-- ------------------------------Copy Icon ------------------------- -->
+
+
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Card Title 1</h5>
+                        <p class="card-text">Some quick example text for card 1.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-img-container">
+                        <img src="Abuja.jpg" class="card-img-top" alt="...">
+                        <button class="favorite-btn" data-id="2">
+                            <i class="fas fa-heart favorite-icon"></i>
+                            <div class="spinner"></div>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Card Title 2</h5>
+                        <p class="card-text">Some quick example text for card 2.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="col">
+                <div class="card h-100">
+                    <div class="card-img-container">
+                        <img src="Abuja.jpg" class="card-img-top" alt="...">
+                        <button class="favorite-btn" data-id="3">
+                            <i class="fas fa-heart favorite-icon"></i>
+                            <div class="spinner"></div>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Card Title 3</h5>
+                        <p class="card-text">Some quick example text for card 3.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+<!-- ------------------------ Copy Html -------------------------------------------- -->
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+ 
+    
+
+
+
+
+
+<!-- ------------------------ Copy Script-------------------------------------------- -->
+
+    <script>
+        $(document).ready(function() {
+            // Load favorites from localStorage
+            const loadFavorites = () => {
+                return JSON.parse(localStorage.getItem('favorites') || '[]');
+            };
+
+            // Save favorites to localStorage
+            const saveFavorites = (favorites) => {
+                localStorage.setItem('favorites', JSON.stringify(favorites));
+            };
+
+            // Initialize favorite states
+            const favorites = loadFavorites();
+            favorites.forEach(id => {
+                $(`.favorite-btn[data-id="${id}"] .favorite-icon`).addClass('active');
+            });
+
+            // Handle favorite button click
+            $('.favorite-btn').click(function() {
+                const btn = $(this);
+                const id = btn.data('id');
+                const icon = btn.find('.favorite-icon');
+                
+                // Add loading state
+                btn.addClass('loading');
+                
+                // Simulate AJAX delay
+                setTimeout(() => {
+                    const favorites = loadFavorites();
+                    const isCurrentlyFavorited = favorites.includes(id);
+                    
+                    if (isCurrentlyFavorited) {
+                        saveFavorites(favorites.filter(fId => fId !== id));
+                        icon.removeClass('active');
+                    } else {
+                        saveFavorites([...favorites, id]);
+                        icon.addClass('active');
+                    }
+                    
+                    // Remove loading state
+                    btn.removeClass('loading');
+                }, 600);
+            });
+        });
+    </script>
+
+
+
+
+
+
+</body>
+</html>
